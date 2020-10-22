@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 
 public class SpoonItem extends Item {
     public SpoonItem(String name) {
-        setRegistryName(name);
+        this.setRegistryName(name);
+        this.setTranslationKey(name);
     }
 }

@@ -63,3 +63,8 @@ gversion {
     explicitType = true                      // optional. Force types to be explicitly printed
     indent       = "    "                     // optional. Change how code is indented. 1 tab is default.
 }
+
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}
+
