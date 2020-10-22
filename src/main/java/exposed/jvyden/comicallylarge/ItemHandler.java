@@ -18,8 +18,6 @@ public class ItemHandler {
 
     public static void init() {
         spoonItem = new SpoonItem("spoon");
-        spoonItem.setCreativeTab(CreativeTabs.TOOLS);
-        spoonItem.setMaxStackSize(1);
     }
 
     @SubscribeEvent
