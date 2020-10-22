@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  A",
+    " B ",
+    "B  "
+  ],
+  "key": {
+    "A": [
+      {
+        "item": "minecraft:bucket",
+        "data": 0
+      }
+    ],
+    "B": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ]
+  },
+  "result": {
+    "item": "comicallylarge:spoon"
+  }
+}

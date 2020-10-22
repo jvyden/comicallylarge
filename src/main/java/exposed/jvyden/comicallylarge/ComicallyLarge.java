@@ -20,16 +20,9 @@ public class ComicallyLarge {
 
     public static Logger logger;
 
-    /**
-     * This is the instance of your mod as created by Forge. It will never be null.
-     */
     @Mod.Instance(MOD_ID)
     public static ComicallyLarge INSTANCE;
 
-    /**
-     * This is the first initialization event. Register tile entities here.
-     * The registry events below will have fired prior to entry to this method.
-     */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
@@ -38,17 +31,11 @@ public class ComicallyLarge {
         logger.log(Level.INFO, "Dawg, can I get some ice cream?");
     }
 
-    /**
-     * This is the second initialization event. Register custom recipes
-     */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         logger.log(Level.INFO, "Only a spoonful!");
     }
 
-    /**
-     * This is the final initialization event. Register actions from other mods here
-     */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
         logger.log(Level.INFO, "As we can see, King Bach has presented a rather large spoon to his friend. " +
