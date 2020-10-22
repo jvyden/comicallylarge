@@ -17,7 +17,7 @@ i thought it would be funny
 *(Tested on Gentoo, Arch Linux, and Ubuntu.)*
 1. Install all the necessary tools. *(git, java, etc. You should already know how to do this for your distro, so I wont 
 get into it.)*
-2. `git clone https://gitlab.com/jvyden/obamanet.git/` 
+2. `git clone https://gitlab.com/jvyden/comicallylarge.git/` 
 3. `./gradlew buildDependents`
 4. While you wait, please perform a ritual to the gradle gods.
 
