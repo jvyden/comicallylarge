@@ -1,12 +1,26 @@
 # The Comically Large Spoon
-only a spoonful
+Truly the pinnacle of comedy.
 
-![the SPOON](spoon-large.png)
+![Only a spoonful!](https://media.forgecdn.net/attachments/thumbnails/317/853/310/172/2020-10-22_05.png)
 
-# Why?
-i thought it would be funny
+## What am I even looking at?
 
-# Building
+### Why?
+I thought it would be funny.
+And it is.
+..right, guys?
+
+### What does it do?
+It adds a spoon.
+[Take a look!](https://www.curseforge.com/minecraft/mc-mods/the-comically-large-spoon/screenshots)
+
+### How do I craft this legendary item?
+For such an amazing spoon, you only need 2 iron and a bucket.
+
+![Spoon Crafting Recipe](https://i.imgur.com/rW527Cz.png)
+
+
+## Building
 
 ### Requirements
 - Java 8 JDK
