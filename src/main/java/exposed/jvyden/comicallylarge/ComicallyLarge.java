@@ -1,14 +1,11 @@
 package exposed.jvyden.comicallylarge;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
 
 @Mod(
         modid = ComicallyLarge.MOD_ID,
@@ -17,9 +14,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 )
 public class ComicallyLarge {
 
-    public static final String MOD_ID = "comicallylarge";
+    public static final String MOD_ID = BuildInfo.MAVEN_NAME;
     public static final String MOD_NAME = "The Comically Large Spoon";
-    public static final String VERSION = "1.0-alpha";
+    public static final String VERSION = BuildInfo.VERSION;
+
+    public static Logger logger;
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -33,7 +32,10 @@ public class ComicallyLarge {
      */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
 
+        ItemHandler.init();
+        logger.log(Level.INFO, "Dawg, can I get some ice cream?");
     }
 
     /**
@@ -41,7 +43,7 @@ public class ComicallyLarge {
      */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        logger.log(Level.INFO, "Only a spoonful!");
     }
 
     /**
@@ -49,65 +51,12 @@ public class ComicallyLarge {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-
+        logger.log(Level.INFO, "As we can see, King Bach has presented a rather large spoon to his friend. " +
+                "The humor stems from the fact that King Bach would like to eat some ice cream but his friend resorts at" +
+                " him, saying he can only have a spoonful and nothing more. Bach then suddenly changes his expression " +
+                "and body language that he is in possession of a spoon. And not just any spoon, it is a massive " +
+                "stainless steel spoon. This is funny because you would never expect someone to be in possession of a " +
+                "massive spoon to eat ice cream with. It is completely unorthodox and uncalled for. " +
+                "This is why the video is on the 2012 epic vine compilation on YouTube.");
     }
-
-    /**
-     * Forge will automatically look up and bind blocks to the fields in this class
-     * based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Blocks {
-      /*
-          public static final MySpecialBlock mySpecialBlock = null; // placeholder for special block below
-      */
-    }
-
-    /**
-     * Forge will automatically look up and bind items to the fields in this class
-     * based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Items {
-      /*
-          public static final ItemBlock mySpecialBlock = null; // itemblock for the block above
-          public static final MySpecialItem mySpecialItem = null; // placeholder for special item below
-      */
-    }
-
-    /**
-     * This is a special class that listens to registry events, to allow creation of mod blocks and items at the proper time.
-     */
-    @Mod.EventBusSubscriber
-    public static class ObjectRegistryHandler {
-        /**
-         * Listen for the register event for creating custom items
-         */
-        @SubscribeEvent
-        public static void addItems(RegistryEvent.Register<Item> event) {
-           /*
-             event.getRegistry().register(new ItemBlock(Blocks.myBlock).setRegistryName(MOD_ID, "myBlock"));
-             event.getRegistry().register(new MySpecialItem().setRegistryName(MOD_ID, "mySpecialItem"));
-            */
-        }
-
-        /**
-         * Listen for the register event for creating custom blocks
-         */
-        @SubscribeEvent
-        public static void addBlocks(RegistryEvent.Register<Block> event) {
-           /*
-             event.getRegistry().register(new MySpecialBlock().setRegistryName(MOD_ID, "mySpecialBlock"));
-            */
-        }
-    }
-    /* EXAMPLE ITEM AND BLOCK - you probably want these in separate files
-    public static class MySpecialItem extends Item {
-
-    }
-
-    public static class MySpecialBlock extends Block {
-
-    }
-    */
 }
