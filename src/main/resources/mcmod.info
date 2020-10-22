@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "comicallylarge",
+    "name": "The Comically Large Spoon",
+    "description": "only a spoonful",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "jvyden"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
