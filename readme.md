@@ -1,7 +1,7 @@
 # The Comically Large Spoon
 Truly the pinnacle of comedy.
 
-![Only a spoonful!](https://media.forgecdn.net/attachments/thumbnails/317/853/310/172/2020-10-22_05.png)
+![Only a spoonful!](https://media.forgecdn.net/attachments/317/853/2020-10-22_05.png)
 
 ## What am I even looking at?
 
