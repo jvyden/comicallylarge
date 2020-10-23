@@ -1,3 +1,6 @@
 item.spoon.name=The Comically Large Spoon
 item.ice_cream.name=Ice Cream
 entity.ice_cream.name=Ice Cream
+item.spoonful.name=The Comically Large Spoonful of Ice Cream
+lore.ice_cream=Just some ice cream. Not anything else.
+lore.spoonful=Just a spoonful of ice cream. Not anything else.

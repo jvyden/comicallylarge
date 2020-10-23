@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": [
+      {
+        "item": "comicallylarge:ice_cream",
+        "data": 0
+      }
+    ],
+    "B": [
+      {
+        "item": "comicallylarge:spoon"
+      }
+    ]
+  },
+  "result": {
+    "item": "comicallylarge:spoonful"
+  }
+}

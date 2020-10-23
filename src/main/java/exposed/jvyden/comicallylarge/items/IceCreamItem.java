@@ -1,7 +1,10 @@
 package exposed.jvyden.comicallylarge.items;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import exposed.jvyden.comicallylarge.entities.EntityIceCream;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -13,8 +16,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class IceCreamItem extends ItemFood {
-    float velocity = 3F;
 
     public IceCreamItem(String name) {
         super(4, true);
@@ -24,9 +29,9 @@ public class IceCreamItem extends ItemFood {
         this.setMaxStackSize(16);
     }
 
-    public IceCreamItem(String name, float velocity) {
-        this(name);
-        this.velocity = velocity;
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(ChatFormatting.DARK_PURPLE + I18n.format("lore.ice_cream"));
     }
 
     @Override
@@ -39,11 +44,11 @@ public class IceCreamItem extends ItemFood {
             itemStack.shrink(1); // Consume item if in survival mode
         }
 
-        world.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.7F / (itemRand.nextFloat() * 0.7F + 0.8F));
+        world.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.5F / (itemRand.nextFloat() * 0.7F + 0.8F));
 
         if (!world.isRemote) {
             EntityIceCream entityIceCream = new EntityIceCream(world, player);
-            entityIceCream.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, velocity, 0.5F);
+            entityIceCream.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 0.75F, 0.5F);
             world.spawnEntity(entityIceCream);
         }
 

@@ -3,10 +3,9 @@ package exposed.jvyden.comicallylarge;
 import exposed.jvyden.comicallylarge.entities.EntityIceCream;
 import exposed.jvyden.comicallylarge.items.IceCreamItem;
 import exposed.jvyden.comicallylarge.items.SpoonItem;
+import exposed.jvyden.comicallylarge.items.SpoonfulItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -26,31 +25,31 @@ import java.util.Objects;
 public class ItemHandler {
     public static Item spoonItem;
     public static Item iceCreamItem;
+    public static Item spoonfulItem;
 
     private static final Minecraft mc = Minecraft.getMinecraft();
 
     public static void init() {
         spoonItem = new SpoonItem("spoon");
         iceCreamItem = new IceCreamItem("ice_cream");
+        spoonfulItem = new SpoonfulItem("spoonful");
 
         RenderingRegistry.registerEntityRenderingHandler(EntityIceCream.class, (IRenderFactory<Entity>) manager ->
                 new RenderSnowball<>(manager, iceCreamItem, mc.getRenderItem()));
 
         EntityRegistry.registerModEntity(new ResourceLocation(ComicallyLarge.MOD_ID+":ice_cream"), EntityIceCream.class, "ice_cream", 0, ComicallyLarge.INSTANCE, 80, 1, true);
-
-//        RenderingRegistry.registerEntityRenderingHandler(EntityIceCream.class, new RenderSnowball<>(mc.getRenderManager(), iceCreamItem, mc.getRenderItem()));
-//                       this.entityRenderMap.put(EntitySnowball.class, new RenderSnowball  (this,                  Items.SNOWBALL, itemRendererIn));
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(spoonItem, iceCreamItem);
+        event.getRegistry().registerAll(spoonItem, iceCreamItem, spoonfulItem);
     }
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
         registerRender(spoonItem);
         registerRender(iceCreamItem);
+        registerRender(spoonfulItem);
     }
 
     private static void registerRender(Item item) {
