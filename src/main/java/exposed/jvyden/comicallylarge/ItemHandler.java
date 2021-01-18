@@ -18,6 +18,8 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Objects;
 
@@ -27,15 +29,10 @@ public class ItemHandler {
     public static Item iceCreamItem;
     public static Item spoonfulItem;
 
-    private static final Minecraft mc = Minecraft.getMinecraft();
-
     public static void init() {
         spoonItem = new SpoonItem("spoon");
         iceCreamItem = new IceCreamItem("ice_cream");
         spoonfulItem = new SpoonfulItem("spoonful");
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityIceCream.class, (IRenderFactory<Entity>) manager ->
-                new RenderSnowball<>(manager, iceCreamItem, mc.getRenderItem()));
 
         EntityRegistry.registerModEntity(new ResourceLocation(ComicallyLarge.MOD_ID+":ice_cream"), EntityIceCream.class, "ice_cream", 0, ComicallyLarge.INSTANCE, 80, 1, true);
     }
@@ -45,13 +42,18 @@ public class ItemHandler {
         event.getRegistry().registerAll(spoonItem, iceCreamItem, spoonfulItem);
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(EntityIceCream.class, (IRenderFactory<Entity>) manager ->
+                new RenderSnowball<>(manager, iceCreamItem, Minecraft.getMinecraft().getRenderItem()));
+
         registerRender(spoonItem);
         registerRender(iceCreamItem);
         registerRender(spoonfulItem);
     }
 
+    @SideOnly(Side.CLIENT)
     private static void registerRender(Item item) {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
     }
